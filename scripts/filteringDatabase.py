@@ -26,4 +26,4 @@ for arg in vars(args):
 		print(f"Filtering by {arg}. Allowing {vals}")
 		df = df.loc[df[arg].isin(vals), desiredFields]
 
-df.to_csv("../outputs/output1.csv")
+df.to_csv("../outputs/output1.csv", index = False)
