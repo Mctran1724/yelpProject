@@ -49,7 +49,7 @@ def sentimentScore(df):
 with open("sentiment_scores.csv", "a") as f:
     for chunk in tqdm(dfGenerator):
         #It may be useful to retain other information, but for sake of time, I will keep things sparse.
-        sentimentScore(chunk)[['business_id','composite']].to_csv(f, header = f.tell()==0)
+        sentimentScore(chunk)[['business_id','composite']].to_csv(f, header = f.tell()==0, index = False)
         #f.tell gives the pointer location in the file. Hence if it is as the start, add a header.
         #intent is to compute average score across reviews.
 
