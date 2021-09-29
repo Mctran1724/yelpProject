@@ -47,6 +47,8 @@ for col in attributeDF:
 
 attributeDF.drop(list(toDrop), axis=1, inplace = True) #Remove the redundant columns
 attributeDF.fillna(False, inplace = True) #Fill all NaNs created from the unpacking with False.
+attributeDF *= 1 #Take advantage of truthiness/falsiness. False*1 = 0*1 = 0 and True*1 = 1*1 = 1. Do this to ease pivot table counting.
+
 
 df = pd.concat([df, attributeDF], axis = 1) #Concatenate the huge DF of attributes to the name and city.
 df.drop("attributes", axis = 1, inplace = True) #Remove the now redundant attributes column
