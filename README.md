@@ -20,6 +20,7 @@ The goal of this is to perform some data analyses with the online yelp dataset f
 
 **calculate_sentiment.py**
 * Pulls the reviews dataset. This is too large for my RAM so I pull items in batches.
+* Assigns a sentiment score to every single review in the dataset.
 * For the sentiment analysis, I use both VADER and textblob. 
 * Data cleaning is lowercasing, punctuation removal, and stopword removal. 
 * Note: there could be some value to not cleaning the text that I have not extensively tested. On whole VADER performs well with punctuation and emojis. In addition, some textblob sentiment calculations seemed more accurate by eye test when no cleaning was done.
