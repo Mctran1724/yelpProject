@@ -17,6 +17,8 @@ The goal of this is to perform some data analyses with the online yelp dataset f
 * Uses command line arguments the same way as filtering_database.py to query the data
 * Then creates columns out of the attributes for use in a pivot table
 * Gives back only the name, city, and attributes. 
+* The attributes dictionaries are unpacked to generate purely tabular data.
+* Python truthiness is used to convert the True/False into 1/0. 
 
 **calculate_sentiment.py**
 * Pulls the reviews dataset. This is too large for my RAM so I pull items in batches.
