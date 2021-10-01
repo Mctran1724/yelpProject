@@ -12,8 +12,11 @@ args = parser.parse_args()
 
 desiredFields= ["business_id", "name", "address", "city", "state", "stars", "review_count", "attributes"]
 
-dataDicts = [json.loads(f) for f in open("../yelp_dataset/yelp_academic_dataset_business.json", 'r')]
+'''dataDicts = [json.loads(f) for f in open("../yelp_dataset/yelp_academic_dataset_business.json", 'r')]
 df = pd.DataFrame(dataDicts)
+'''
+
+df = pd.read_json("../yelp_dataset/yelp_academic_dataset_business.json", lines = True)
 
 #Vars takes the __dict__ attribute of the Namespace object, allowing me to iterate through.
 for arg in vars(args): #Returns __dict__ attribute, aligning the command line keyword with the arguments.
@@ -26,4 +29,4 @@ for arg in vars(args): #Returns __dict__ attribute, aligning the command line ke
 		print(f"Filtering by {arg}. Allowing {vals}")
 		df = df.loc[df[arg].isin(vals), desiredFields]
 
-df.to_csv("../outputs/output1.csv", index = False)
+df.to_csv("../outputs/output1.csv", index = False) 
